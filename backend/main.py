@@ -15,7 +15,7 @@ detector = HandDetector(maxHands=1, detectionCon=0.9)
 
 # communication
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-serverAddPort = ("127.0.0.1", 5020)
+serverAddPort = ("127.0.0.1", 5500)
 
 # Using the webcam
 while True:
