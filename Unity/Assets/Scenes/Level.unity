@@ -1808,7 +1808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 419042056}
-  - component: {fileID: 419042055}
+  - component: {fileID: 419042057}
   m_Layer: 0
   m_Name: GroundSpawner
   m_TagString: Untagged
@@ -1816,19 +1816,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &419042055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419042054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 650361399aae7504e8aa08bcba73f69d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundTile: {fileID: 672201391214461328, guid: d16253a6ecbab9d4f93cfb0d0db37d32, type: 3}
 --- !u!4 &419042056
 Transform:
   m_ObjectHideFlags: 0
@@ -1844,6 +1831,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &419042057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419042054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec91e777347806d419328389c1b59ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundTilePrefab: {fileID: 3583012395964108017, guid: 28c0804240531a04fa5033bb04b887ce, type: 3}
+  numberOfTiles: 15
+  tileLength: 5
+  moveSpeed: 5
 --- !u!1 &429210281
 GameObject:
   m_ObjectHideFlags: 0
