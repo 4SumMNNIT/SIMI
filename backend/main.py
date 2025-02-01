@@ -15,22 +15,24 @@ detector = HandDetector(maxHands=1, detectionCon=0.9)
 
 # communication
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-serverAddPort = ("127.0.0.1", 5020)
+serverAddPort = ("127.0.0.1", 5500)
 
 # Using the webcam
-data = []
 while True:
     success, img = cap.read()
     hands, img = detector.findHands(img)
-    # if hands and hands[0]['lmList'][8][0] < 0:
-    # exit(0)
 
-    # show camera output with tracking
-    # cv2.imshow("Image", img)
+    # # for testing: touch left edge of screen with index finger to close
+    # if hands and hands[0]['lmList'][8][0] < 0:
+    #   exit(0)
+
+    # # show camera output with tracking
+    cv2.imshow("Image", img)
     cv2.waitKey(1)
 
     # generating landmark data
     if hands:
+        data = []
         hand = hands[0]
         lmList = hand['lmList']
         for lm in lmList:
@@ -38,4 +40,6 @@ while True:
         
         # sending data to udp server
         sock.sendto(str.encode(str(data)), serverAddPort)
+
+        # # Log data to console
         print(data)
