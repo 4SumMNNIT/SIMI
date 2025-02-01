@@ -2,49 +2,69 @@ using UnityEngine;
 
 public class TileSpawner : MonoBehaviour
 {
-    public GameObject groundTilePrefab;  
-    public int numberOfTiles = 15;       
-    public float tileLength = 5f;       
-    public float moveSpeed = 5f;       
+    public GameObject groundTilePrefab;  // The ground tile prefab
+    public int numberOfTiles = 3;       // Number of tiles to spawn initially
+    public float tileLength = 5f;        // Length of each tile
+    public float moveSpeed = 5f;         // Speed at which tiles will move
+    public GameObject[] Levels;          // Array of wall prefabs
 
-    private GameObject[] groundTiles;   
-    private Vector3 startPosition = new Vector3(0f, -4f, -10f); 
+    public int prevIndx;
+    private GameObject[] groundTiles;    // Array to store the tiles
+    private Vector3 startPosition = new Vector3(0f, -4f, -10f); // Updated start position
 
     void Start()
     {
         groundTiles = new GameObject[numberOfTiles];
 
+        // Spawn the initial tiles in a row
         for (int i = 0; i < numberOfTiles; i++)
         {
             Vector3 spawnPosition = startPosition + new Vector3(0f, 0f, i * tileLength);
-            groundTiles[i] = Instantiate(groundTilePrefab, spawnPosition, Quaternion.identity);
+            int idx = Random.Range(0, Levels.Length);  // Randomly pick a wall prefab
+            prevIndx = idx;
+            GameObject floor = Levels[idx];
+            groundTiles[i] = Instantiate(floor, spawnPosition, Quaternion.identity);
         }
     }
 
     void Update()
     {
+        // Move all the tiles backward over time
         for (int i = 0; i < groundTiles.Length; i++)
         {
             groundTiles[i].transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
         }
 
+        // Check if the first tile has moved past the reset threshold
         if (groundTiles[0].transform.position.z < startPosition.z - tileLength)
         {
-            RepositionTile();
+            SpawnNewWall();  // Spawn a new wall at the front
         }
     }
 
-    void RepositionTile()
+    void SpawnNewWall()
     {
-        GameObject tileToMove = groundTiles[0];
+        // Destroy the tile at the back (first tile in the array)
+        Destroy(groundTiles[0]);
 
-        Vector3 newPosition = groundTiles[groundTiles.Length - 1].transform.position + new Vector3(0f, 0f, tileLength);
-        tileToMove.transform.position = newPosition;
-
+        // Move the remaining tiles in the array forward by one spot
         for (int i = 0; i < groundTiles.Length - 1; i++)
         {
             groundTiles[i] = groundTiles[i + 1];
         }
-        groundTiles[groundTiles.Length - 1] = tileToMove;
+
+        // Randomly choose a new wall prefab
+        int idx = Random.Range(0, Levels.Length);
+        while (prevIndx == idx)
+        {
+            idx = Random.Range(0, Levels.Length);
+        }
+
+        prevIndx = idx;
+        GameObject newWall = Levels[idx];
+
+        // Instantiate the new wall at the front
+        Vector3 newPosition = groundTiles[groundTiles.Length - 1].transform.position + new Vector3(0f, 0f, tileLength);
+        groundTiles[groundTiles.Length - 1] = Instantiate(newWall, newPosition, Quaternion.identity);
     }
 }
