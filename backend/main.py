@@ -3,8 +3,8 @@ from cvzone.HandTrackingModule import HandDetector
 import socket
 
 # dimensions
-height = 1080
-width = 1920
+height = 720
+width = 1280
 
 cap = cv2.VideoCapture(0)
 cap.set(3,width)
@@ -27,7 +27,7 @@ while True:
     #   exit(0)
 
     # # show camera output with tracking
-    # cv2.imshow("Image", img)
+    cv2.imshow("Image", img)
     cv2.waitKey(1)
 
     # generating landmark data
@@ -42,4 +42,4 @@ while True:
         sock.sendto(str.encode(str(data)), serverAddPort)
 
         # # Log data to console
-        # print(data)
+        print(data)
