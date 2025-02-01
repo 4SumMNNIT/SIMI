@@ -10,7 +10,7 @@ public class TileSpawner : MonoBehaviour
 
     public int prevIndx;
     private GameObject[] groundTiles;    // Array to store the tiles
-    private Vector3 startPosition = new Vector3(0f, -4f, -10f); // Updated start position
+    private Vector3 startPosition = new Vector3(0f, -1.5f, -10f); // Updated start position
 
     void Start()
     {
