@@ -1844,9 +1844,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundTilePrefab: {fileID: 3583012395964108017, guid: 28c0804240531a04fa5033bb04b887ce, type: 3}
-  numberOfTiles: 15
-  tileLength: 5
+  numberOfTiles: 5
+  tileLength: 15
   moveSpeed: 5
+  Levels:
+  - {fileID: 3583012395964108017, guid: 28c0804240531a04fa5033bb04b887ce, type: 3}
+  - {fileID: 3583012395964108017, guid: 9d528fb8833f99e4e868960616a9bcbb, type: 3}
+  - {fileID: 3583012395964108017, guid: 87cabe6d1aabc9e4db07ba759b2229a8, type: 3}
+  prevIndx: 0
 --- !u!1 &429210281
 GameObject:
   m_ObjectHideFlags: 0
