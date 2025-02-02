@@ -1844,7 +1844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundTilePrefab: {fileID: 3583012395964108017, guid: 28c0804240531a04fa5033bb04b887ce, type: 3}
-  numberOfTiles: 5
+  numberOfTiles: 10
   tileLength: 15
   moveSpeed: 5
   Levels:
@@ -1863,8 +1863,6 @@ GameObject:
   - component: {fileID: 429210283}
   - component: {fileID: 429210282}
   - component: {fileID: 429210284}
-  - component: {fileID: 429210286}
-  - component: {fileID: 429210285}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1938,38 +1936,6 @@ MonoBehaviour:
   - {fileID: 72374110}
   - {fileID: 500461902}
   - {fileID: 315135821}
---- !u!114 &429210285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429210281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb03a4be8aaa044cb7d198b7dba3ebc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  port: 5020
-  startRecieving: 1
-  printToConsole: 0
-  data: 
---- !u!114 &429210286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429210281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb03a4be8aaa044cb7d198b7dba3ebc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  port: 5020
-  startRecieving: 1
-  printToConsole: 0
-  data: 
 --- !u!1 &465809084
 GameObject:
   m_ObjectHideFlags: 0
@@ -4334,6 +4300,55 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441883945}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1458846612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1458846613}
+  - component: {fileID: 1458846614}
+  m_Layer: 0
+  m_Name: WallSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1458846613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458846612}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.10493, y: 2.9253454, z: 0.9924362}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1458846614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458846612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af806471a3432b94796bd7335a1a140f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallPrefabs:
+  - {fileID: 7526745146184471507, guid: cc622e2e0532d3e448c43db9ce65ca11, type: 3}
+  noOfWalls: 10
+  wallZgaps: 10
+  moveSpeed: 5
 --- !u!1 &1529312216
 GameObject:
   m_ObjectHideFlags: 0
@@ -6194,5 +6209,6 @@ SceneRoots:
   - {fileID: 583834863}
   - {fileID: 1959284033}
   - {fileID: 429210283}
-  - {fileID: 419042056}
   - {fileID: 909415265}
+  - {fileID: 1458846613}
+  - {fileID: 419042056}
