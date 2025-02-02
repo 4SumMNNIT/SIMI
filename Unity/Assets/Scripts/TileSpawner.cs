@@ -8,7 +8,7 @@ public class TileSpawner : MonoBehaviour
     public float moveSpeed = 5f;         // Speed at which tiles will move
     public GameObject[] Levels;          // Array of wall prefabs
 
-    public int prevIndx;
+    public int prevIndx = 0;
     private GameObject[] groundTiles;    // Array to store the tiles
     private Vector3 startPosition = new Vector3(0f, -1.5f, -10f); // Updated start position
 
@@ -22,6 +22,10 @@ public class TileSpawner : MonoBehaviour
             Vector3 spawnPosition = startPosition + new Vector3(0f, 0f, i * tileLength);
             int idx = Random.Range(0, Levels.Length);  // Randomly pick a wall prefab
             prevIndx = idx;
+            while(prevIndx == idx)
+            {
+                idx = Random.Range(0, Levels.Length);
+            }
             GameObject floor = Levels[idx];
             groundTiles[i] = Instantiate(floor, spawnPosition, Quaternion.identity);
         }
