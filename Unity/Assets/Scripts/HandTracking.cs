@@ -14,8 +14,8 @@ public class HandTracking : MonoBehaviour
 
         for (int i = 0; i < 21; i++)
         {
-            float x = 5 - float.Parse(points[i * 3]) / 80;
-            float y = float.Parse(points[i * 3 + 1]) / 80;
+            float x = float.Parse(points[i * 3]);
+            float y = float.Parse(points[i * 3 + 1]);
             float z = float.Parse(points[i * 3 + 2]) / 80;
 
             // Set hand position for all points
