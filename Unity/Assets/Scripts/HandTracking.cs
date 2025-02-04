@@ -12,7 +12,7 @@ public class HandTracking : MonoBehaviour
         data = data.Remove(data.Length - 1, 1);
         string[] points = data.Split(',');
 
-        for (int i = 0; i < 21; i++)
+        for (int i = 0; i < 21 && !PauseMenu.isPaused; i++)
         {
             float x = float.Parse(points[i * 3]);
             float y = float.Parse(points[i * 3 + 1]);
