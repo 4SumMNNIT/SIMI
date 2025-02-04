@@ -4739,7 +4739,7 @@ MonoBehaviour:
   wallPrefabs:
   - {fileID: 7526745146184471507, guid: cc622e2e0532d3e448c43db9ce65ca11, type: 3}
   noOfWalls: 3
-  wallZgaps: 10
+  wallZgaps: 15
   moveSpeed: 5
 --- !u!1 &1529312216
 GameObject:
