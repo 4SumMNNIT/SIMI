@@ -9,8 +9,8 @@ public class TileSpawner : MonoBehaviour
     public GameObject[] Levels;          // Array of wall prefabs
 
     public int prevIndx = 0;
-    private GameObject[] groundTiles;    // Array to store the tiles
-    private Vector3 startPosition = new Vector3(0f, -1.5f, -10f); // Updated start position
+    public GameObject[] groundTiles;    // Array to store the tiles
+    public Vector3 startPosition = new Vector3(0f, -1.5f, -10f); // Updated start position
 
     //For gradually increasing speed
     private float elaspedTime = 0f;
@@ -49,7 +49,7 @@ public class TileSpawner : MonoBehaviour
             elaspedTime = 0;
 
         }
-        Debug.Log(moveSpeed);
+        //Debug.Log(moveSpeed);
 
         // Move all the tiles backward over time
         for (int i = 0; i < groundTiles.Length; i++)

@@ -2705,9 +2705,11 @@ MonoBehaviour:
   moveSpeed: 5
   Levels:
   - {fileID: 3583012395964108017, guid: 28c0804240531a04fa5033bb04b887ce, type: 3}
-  - {fileID: 3583012395964108017, guid: 9d528fb8833f99e4e868960616a9bcbb, type: 3}
-  - {fileID: 3583012395964108017, guid: 87cabe6d1aabc9e4db07ba759b2229a8, type: 3}
+  - {fileID: 3583012395964108017, guid: aba96f66060e4114bb9f9dcfebbd422e, type: 3}
+  - {fileID: 3583012395964108017, guid: 7632fe6c75449394fbaec9e9baf1e8db, type: 3}
   prevIndx: 0
+  groundTiles: []
+  startPosition: {x: 0, y: -1.5, z: -10}
 --- !u!1 &429210281
 GameObject:
   m_ObjectHideFlags: 0
@@ -5876,9 +5878,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallPrefabs:
   - {fileID: 1243960249782705905, guid: 5c9778512d1ad684b8bc32dbd2d94d74, type: 3}
-  noOfWalls: 3
-  wallZgaps: 15
-  moveSpeed: 5
 --- !u!1 &1529312216
 GameObject:
   m_ObjectHideFlags: 0
