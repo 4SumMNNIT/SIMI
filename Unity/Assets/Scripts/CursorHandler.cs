@@ -21,7 +21,10 @@ public class CursorHandler : MonoBehaviour
     /// </summary>
     void Start()
     {
-        if (!PauseMenu.isPaused){
+        if (!PauseMenu.isMenu || !PauseMenu.isPaused){
+            Debug.Log("CursorHandler Start");
+            Debug.Log(PauseMenu.isMenu);
+            Debug.Log(PauseMenu.isPaused);
             cursor.SetActive(false);
         }
     }
@@ -29,7 +32,7 @@ public class CursorHandler : MonoBehaviour
 
     void Update()
     {
-        if (PauseMenu.isPaused)
+        if (PauseMenu.isMenu || PauseMenu.isPaused)
         {
             cursor.SetActive(true);
             string data = udpReceive.data;

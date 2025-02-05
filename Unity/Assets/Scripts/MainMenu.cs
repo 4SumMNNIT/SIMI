@@ -1,18 +1,27 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class MainMenu : MonoBehaviour
 {
-
-    //Start Game
-    public void PlayGame()
+    public GameObject MainPanel;
+    public UDPReceive uDPReceive;
+    public static bool isMenu;
+    void Start()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        isMenu=true;
+        Cursor.visible = true; // Show cursor in Main Menu
+        Cursor.lockState = CursorLockMode.None;
     }
 
-    //Exit game ONLY WORKS ON BUILD
-    public void ExitGame()
+    public void PlayGame()
+    {
+        MainPanel.SetActive(false);
+        isMenu = false;
+        Cursor.visible = false; // Hide cursor when starting the game
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void QuitGame()
     {
         Application.Quit();
     }
