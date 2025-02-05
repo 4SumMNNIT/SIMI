@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class PauseMenu : MonoBehaviour
+public class MenuHandler : MonoBehaviour
 {
     public UDPReceive uDPReceive;
     public GameObject PausePanel;
@@ -13,7 +13,6 @@ public class PauseMenu : MonoBehaviour
     public static bool isPaused;
     public static bool isMenu;
 
-
     void Start()
     {
         // Show Main Menu at the beginning
@@ -22,6 +21,7 @@ public class PauseMenu : MonoBehaviour
         PausePanel.SetActive(false);
         Cursor.visible = true; 
         Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
     }
 
     void Update()
@@ -41,6 +41,7 @@ public class PauseMenu : MonoBehaviour
         // Hide main menu and start the game
         isMenu=false;
         Cursor.visible = false;
+        Time.timeScale = 1;
         MainMenuPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -53,7 +54,18 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
+    public void Exit()
+    {
+        //enable mainmenu
+        MainMenuPanel.SetActive(true);
+        isMenu=true;
+        PausePanel.SetActive(false);
+        Time.timeScale = 0;
+        isPaused = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
+    }
     public void Continue()
     {
         PausePanel.SetActive(false);
