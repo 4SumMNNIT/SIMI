@@ -3,9 +3,9 @@ using UnityEngine;
 public class WallSpawner : MonoBehaviour
 {
     public GameObject[] wallPrefabs;
-    private int noOfWalls = 15;
-    private float wallZgaps = 5f;
-    private float moveSpeed = 0f;
+    private int noOfWalls = 5;
+    private float wallZgaps = 25f;
+    private float moveSpeed = 1f;
 
     private GameObject[] walls;
     private Vector3 startPosition = new Vector3(0f, 6f, -10f);
@@ -32,7 +32,7 @@ public class WallSpawner : MonoBehaviour
 
         if (time == 10)
         {
-            moveSpeed += 5;
+            moveSpeed += 1;
             elaspedTime = 0;
 
         }

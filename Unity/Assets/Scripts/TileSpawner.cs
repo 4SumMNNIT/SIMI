@@ -3,9 +3,9 @@ using UnityEngine;
 public class TileSpawner : MonoBehaviour
 {
     public GameObject groundTilePrefab;  // The ground tile prefab
-    public int numberOfTiles = 5;       // Number of tiles to spawn initially
-    public float tileLength = 50f;        // Length of each tile
-    public float moveSpeed = 1f;         // Speed at which tiles will move
+    private int numberOfTiles = 5;       // Number of tiles to spawn initially
+    private float tileLength = 50f;        // Length of each tile
+    private float moveSpeed = 1f;         // Speed at which tiles will move
     public GameObject[] Levels;          // Array of wall prefabs
 
     public int prevIndx = 0;
@@ -45,7 +45,7 @@ public class TileSpawner : MonoBehaviour
 
         if (time == 10)
         {
-            moveSpeed += 5;
+            moveSpeed += 1;
             elaspedTime = 0;
 
         }
