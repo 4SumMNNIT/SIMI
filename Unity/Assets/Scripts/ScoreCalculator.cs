@@ -1,16 +1,18 @@
+using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ScoreCalculator : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    public Text score;
+    
     void Update()
     {
-        
+        //number= number + (int)Time.deltaTime;
+        //score.text= number.ToString();
+
+        score.text = Time.time.ToString("0");
+
+        //Debug.Log(Time.deltaTime);
     }
 }

@@ -5,7 +5,7 @@ public class TileSpawner : MonoBehaviour
     public GameObject groundTilePrefab;  // The ground tile prefab
     private int numberOfTiles = 5;       // Number of tiles to spawn initially
     private float tileLength = 50f;        // Length of each tile
-    private float moveSpeed = 1f;         // Speed at which tiles will move
+    private float moveSpeed = 5f;         // Speed at which tiles will move
     public GameObject[] Levels;          // Array of wall prefabs
 
     public int prevIndx = 0;
