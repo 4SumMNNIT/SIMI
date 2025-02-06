@@ -9,8 +9,8 @@ width = 1280
 # python to unity mapping
 x_axis_py_min = 0
 x_axis_py_max = width
-x_axis_unity_min = 10 
-x_axis_unity_max = -10
+x_axis_unity_min = -10 
+x_axis_unity_max = 10
 y_axis_py_min = 0
 y_axis_py_max = height
 y_axis_unity_min = -0.7 
