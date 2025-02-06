@@ -3,12 +3,14 @@ using UnityEngine;
 public class WallSpawner : MonoBehaviour
 {
     public GameObject[] wallPrefabs;
-    public int noOfWalls = 15;
-    public float wallZgaps = 5f;
-    public float moveSpeed = 0f;
+    private int noOfWalls = 5;
+    private float wallZgaps = 25f;
+    private float moveSpeed = 1f;
 
     private GameObject[] walls;
     private Vector3 startPosition = new Vector3(0f, 6f, -10f);
+    //For gradually increasing speed
+    private float elaspedTime = 0f;
 
     void Start()
     {
@@ -23,6 +25,17 @@ public class WallSpawner : MonoBehaviour
 
     void Update()
     {
+        //Trying to gradually increase the speed 
+        elaspedTime += Time.deltaTime;
+
+        int time = Mathf.RoundToInt(elaspedTime);
+
+        if (time == 10)
+        {
+            moveSpeed += 1;
+            elaspedTime = 0;
+
+        }
         for (int i = 0; i < walls.Length; i++)
         {
             walls[i].transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
