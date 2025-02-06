@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2c95ff175d6b024468d6538e23bca50c, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -2717,8 +2717,8 @@ MonoBehaviour:
   moveSpeed: 5
   Levels:
   - {fileID: 3583012395964108017, guid: 28c0804240531a04fa5033bb04b887ce, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3583012395964108017, guid: aba96f66060e4114bb9f9dcfebbd422e, type: 3}
+  - {fileID: 3583012395964108017, guid: 7632fe6c75449394fbaec9e9baf1e8db, type: 3}
   prevIndx: 0
 --- !u!1 &429210281
 GameObject:
