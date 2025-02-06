@@ -49,7 +49,7 @@ public class TileSpawner : MonoBehaviour
             elaspedTime = 0;
 
         }
-        Debug.Log(moveSpeed);
+        // Debug.Log(moveSpeed);
 
         // Move all the tiles backward over time
         for (int i = 0; i < groundTiles.Length; i++)

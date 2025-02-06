@@ -2717,8 +2717,8 @@ MonoBehaviour:
   moveSpeed: 5
   Levels:
   - {fileID: 3583012395964108017, guid: 28c0804240531a04fa5033bb04b887ce, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3583012395964108017, guid: aba96f66060e4114bb9f9dcfebbd422e, type: 3}
+  - {fileID: 3583012395964108017, guid: 7632fe6c75449394fbaec9e9baf1e8db, type: 3}
   prevIndx: 0
 --- !u!1 &429210281
 GameObject:
@@ -2754,7 +2754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   port: 5500
   startRecieving: 1
-  printToConsole: 1
+  printToConsole: 0
   data: 
 --- !u!4 &429210283
 Transform:

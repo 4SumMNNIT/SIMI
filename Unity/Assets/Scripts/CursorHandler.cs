@@ -22,9 +22,9 @@ public class CursorHandler : MonoBehaviour
     void Start()
     {
         if (!MenuHandler.isMenu || !MenuHandler.isPaused){
-            Debug.Log("CursorHandler Start");
-            Debug.Log(MenuHandler.isMenu);
-            Debug.Log(MenuHandler.isPaused);
+            // Debug.Log("CursorHandler Start");
+            // Debug.Log(MenuHandler.isMenu);
+            // Debug.Log(MenuHandler.isPaused);
             cursor.SetActive(false);
         }
     }
@@ -41,10 +41,10 @@ public class CursorHandler : MonoBehaviour
             string[] points = data.Split(',');
             float inputX = float.Parse(points[8 * 3]);
             float inputY = float.Parse(points[8 * 3 + 1]);
-            Debug.Log(""+inputX+" "+inputY);
+            // Debug.Log(""+inputX+" "+inputY);
             float mappedX = MapRange(inputX, udpInputXMin, udpInputXMax, gameXMin, gameXMax);
             float mappedY = MapRange(inputY, udpInputYMin, udpInputYMax, gameYMin, gameYMax);
-            Debug.Log(""+mappedX+" "+mappedY);
+            // Debug.Log(""+mappedX+" "+mappedY);
             rectTransform.localPosition = new Vector2(mappedX, mappedY);
         }else{
             cursor.SetActive(false);
