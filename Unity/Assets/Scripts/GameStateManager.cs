@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class MenuHandler : MonoBehaviour
+public class GameStateManager : MonoBehaviour
 {
     public UDPReceive uDPReceive;
     public GameObject PausePanel;
@@ -10,23 +10,24 @@ public class MenuHandler : MonoBehaviour
     private Coroutine checkRoutine;
     public float delay = 1.0f; // Reduced to 1 sec for hand detection pause
 
+    public RectTransform cursor;
     public static bool isPaused;
     public static bool isMenu;
+    public static bool isLevel;
 
     void Start()
     {
         // Show Main Menu at the beginning
+        PausePanel.SetActive(false);
         MainMenuPanel.SetActive(true);
         isMenu=true;
-        PausePanel.SetActive(false);
-        Cursor.visible = true; 
-        Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
     }
 
     void Update()
     {
-        if (uDPReceive.data != previousValue)
+        // if game is in level then check for udp data stability for pausing
+        if (isLevel && uDPReceive.data != previousValue)
         {
             previousValue = uDPReceive.data;
             if (checkRoutine != null)
@@ -36,25 +37,34 @@ public class MenuHandler : MonoBehaviour
         }
     }
 
-    public void PlayGame()
+    // start the game anew
+    public void StartLevel()
     {
-        // Hide main menu and start the game
-        isMenu=false;
-        Cursor.visible = false;
-        Time.timeScale = 1;
+        // change the states, isLevel is handled by Update()
+        isMenu = false;
+        isPaused = false;
+        isLevel = true;
         MainMenuPanel.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
     }
 
-    public void Pause()
+    public void PauseLevel()
     {
+        // Debug.Log("Pause Called");
         PausePanel.SetActive(true);
         Time.timeScale = 0;
         isPaused = true;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        isLevel = false;
     }
-    public void Exit()
+    public void ResumeLevel()
+    {
+        // Debug.Log("Resume Called");
+        PausePanel.SetActive(false);
+        Time.timeScale = 1;
+        isPaused = false;
+        isLevel = true;
+    }
+    public void ExitLevel()
     {
         //enable mainmenu
         MainMenuPanel.SetActive(true);
@@ -62,24 +72,11 @@ public class MenuHandler : MonoBehaviour
         PausePanel.SetActive(false);
         Time.timeScale = 0;
         isPaused = false;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-
-    }
-    public void Continue()
-    {
-        PausePanel.SetActive(false);
-        Time.timeScale = 1;
-        isPaused = false;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     IEnumerator WaitForStability()
     {
-        if(!isMenu){
         yield return new WaitForSeconds(delay);
-        Debug.Log("Hand detected outside game - Pausing");
-        Pause();}
+        PauseLevel();
     }
 }

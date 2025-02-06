@@ -7,7 +7,7 @@ public class HandTracking : MonoBehaviour
 
     void Update()
     {
-        if (!MenuHandler.isMenu && !MenuHandler.isPaused)
+        if (!GameStateManager.isMenu && !GameStateManager.isPaused)
         {
 
             string data = udpReceive.data;
