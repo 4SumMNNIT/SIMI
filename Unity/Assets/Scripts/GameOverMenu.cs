@@ -12,7 +12,7 @@ public class GameOverMenu : MonoBehaviour
             SceneManager.LoadScene(previousSceneIndex);
         }
         else{
-            Debug.Log("No previous scene to load.");
+            // Debug.Log("No previous scene to load.");
         }
     }
 

@@ -18,7 +18,7 @@ public class SpeedController : MonoBehaviour
             elaspedTime = 0;
 
         }
-        Debug.Log("moveSpeed");
+        // Debug.Log("moveSpeed");
 
         return moveSpeed;
         

@@ -7,7 +7,7 @@ public class GameOver : MonoBehaviour
     {
         if (other.CompareTag("playerfinger"))
         {
-            Debug.Log("Gameover");
+            // Debug.Log("Gameover");
         }
     }
     void Start()

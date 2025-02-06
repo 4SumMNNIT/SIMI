@@ -7,7 +7,7 @@ public class CollisionDetection : MonoBehaviour
     {
         if (other.CompareTag("playerfinger"))  
         {
-            Debug.Log("fingerpassed");
+            // Debug.Log("fingerpassed");
         }
     }
 
