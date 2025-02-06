@@ -16,7 +16,7 @@ public class UIClickHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("isPaused: "+GameStateManager.isPaused + " isLevel: "+GameStateManager.isLevel);
+        // Debug.Log("isPaused: "+GameStateManager.isPaused + " isLevel: "+GameStateManager.isLevel);
         if (GameStateManager.isMenu && CursorHandler.isClick){
             if (IsHovering(cursor, playButton.GetComponent<RectTransform>())){
                 playButton.onClick.Invoke();

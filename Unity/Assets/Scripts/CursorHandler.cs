@@ -24,14 +24,14 @@ public class CursorHandler : MonoBehaviour
     /// </summary>
     void Start()
     {
-        if (!GameStateManager.isMenu || !GameStateManager.isPaused){
+        if (!GameStateManager.isMenu || !GameStateManager.isPaused || !GameStateManager.isGameOver){
             cursor.SetActive(false);
         }
     }
 
     void Update()
     {
-        if (GameStateManager.isMenu || GameStateManager.isPaused)
+        if (GameStateManager.isMenu || GameStateManager.isPaused || GameStateManager.isGameOver)
         {
             // move the cursor
             cursor.SetActive(true);
@@ -92,4 +92,5 @@ public class CursorHandler : MonoBehaviour
         float normalizedValue = Mathf.InverseLerp(fromMin, fromMax, value);
         return Mathf.Lerp(toMin, toMax, normalizedValue);
     }
+
 }
