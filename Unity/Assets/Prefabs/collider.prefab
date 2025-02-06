@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1833894786509921912}
   - component: {fileID: 5429102717044621955}
+  - component: {fileID: 6809557986931332954}
   m_Layer: 0
   m_Name: collider
   m_TagString: Untagged
@@ -47,7 +48,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -55,3 +56,15 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6809557986931332954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4692888249785537483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76f440cd5b9bdb4aac9b0ce4ebc7f8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
