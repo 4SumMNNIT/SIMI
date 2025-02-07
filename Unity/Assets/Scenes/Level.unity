@@ -4914,7 +4914,7 @@ MonoBehaviour:
   - {fileID: 1715397622105536689, guid: a03d0f00630bfbb43bdd66b7436839f8, type: 3}
   - {fileID: 8538842848386389855, guid: d76f5ef793368384389f8a9e98d85f03, type: 3}
   - {fileID: 3766812196639241300, guid: dcb15daf0cb7a214280b868b9c712294, type: 3}
-  startPositionWall: {x: 0, y: 5, z: -15}
+  startPositionWall: {x: 0, y: 4, z: -15}
   Levels:
   - {fileID: 3263352685309596186, guid: cfa77127fe369ff43860afc7e4a94c83, type: 3}
   - {fileID: 528373191047565091, guid: 5b6af6fae65c290438ad0256a9c95595, type: 3}
