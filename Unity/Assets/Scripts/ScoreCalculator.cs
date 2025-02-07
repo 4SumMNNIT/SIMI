@@ -12,12 +12,12 @@ public class ScoreCalculator : MonoBehaviour
         //score.text= number.ToString();
 
         // dont show score if score is zero
-        if (Time.time > 0 && !GameStateManager.isPaused) {
-            score.enabled = true;
-        }
-        else {
-            score.enabled = false;
-        }
+        // if (Time.time > 0 && !GameStateManager.isPaused) {
+        //     score.enabled = true;
+        // }
+        // else {
+        //     score.enabled = false;
+        // }
 
         // show score
         score.text = Time.time.ToString("0");

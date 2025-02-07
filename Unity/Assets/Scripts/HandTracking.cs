@@ -6,7 +6,7 @@ public class HandTracking : MonoBehaviour
 
     void Update()
     {
-        if (!GameStateManager.isMenu && !GameStateManager.isPaused)
+        if (GameManager.state == GameManager.GameState.level)
         {
             string[] points = UDPManager.Instance.GetDataPoints();
 
