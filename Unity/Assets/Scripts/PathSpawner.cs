@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 public class PathSpawner : MonoBehaviour
 {
     //Common variables
-    private float wallZgaps = 30f;
+    private float wallZgaps = 35f;
     private float moveSpeed = 5f; 
     private float elaspedTime = 0f;
     public int prevIndx = 0;
@@ -12,19 +12,22 @@ public class PathSpawner : MonoBehaviour
 
     //Array to store different types of walls
     public GameObject[] wallPrefabs;
-    private int noOfWalls = 3;
+    private int noOfWalls = 7;
     
+
 
     //Array to store current walls
     private GameObject[] walls;
-    public Vector3 startPositionWall = new Vector3(0f, 6.5f, -10f);
-    private int numberOfTiles = 5;
-    private float tileLength = 50f;
+    public Vector3 startPositionWall = new Vector3(0f, 4f, -10f);
+    
 
   
     
     //Array for different ground
-    public GameObject[] Levels;   
+    public GameObject[] Levels;
+    private int numberOfTiles = 5;
+    private float tileLength = 50f;
+    
     //Array to store current ground
     private GameObject[] groundTiles;    // Array to store the Ground tiles
     public Vector3 startPosition = new Vector3(0f, -1.5f, -10f); 
@@ -38,7 +41,7 @@ public class PathSpawner : MonoBehaviour
 
         for (int i = 0; i < noOfWalls; i++)
         {
-            Vector3 spawnPosition = new Vector3(0f, 6.5f, startPositionWall.z + i * wallZgaps);
+            Vector3 spawnPosition = new Vector3(0f, 4f, startPositionWall.z + i * wallZgaps);
             walls[i] = Instantiate(GetRandomWall(), spawnPosition, Quaternion.identity);
         }
         //For walls===============
@@ -157,7 +160,7 @@ public class PathSpawner : MonoBehaviour
             walls[i] = walls[i + 1];
         }
 
-        Vector3 newPosition = new Vector3(0f, 6.5f, walls[walls.Length - 2].transform.position.z + wallZgaps);
+        Vector3 newPosition = new Vector3(0f, 4f, walls[walls.Length - 2].transform.position.z + wallZgaps);
         walls[walls.Length - 1] = Instantiate(GetRandomWall(), newPosition, Quaternion.identity);
     }
 
