@@ -3,7 +3,7 @@ using UnityEngine;
 public class WallSpawner : MonoBehaviour
 {
     public GameObject[] wallPrefabs;
-    private int noOfWalls = 3;
+    private int noOfWalls = 0;
     private float wallZgaps = 30f;
     private float moveSpeed = 5f;
 
