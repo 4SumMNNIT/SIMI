@@ -2,90 +2,75 @@ using UnityEngine;
 
 public class TileSpawner : MonoBehaviour
 {
-
-    private int numberOfTiles = 5;       // Number of tiles to spawn initially
-    private float tileLength = 50f;        // Length of each tile
-    private float moveSpeed = 5f;         // Speed at which tiles will move
-    public GameObject[] Levels;          // Array of wall prefabs
-
-    public int prevIndx = 0;
-    public GameObject[] groundTiles;    // Array to store the tiles
-    public Vector3 startPosition = new Vector3(0f, -1.5f, -10f); // Updated start position
-
-    //For gradually increasing speed
-    private float elaspedTime = 0f;
+    private int numberOfTiles = 10;
+    private float tileLength = 50f;
+    private float moveSpeed = 5f;
+    public GameObject[] Levels;
+    private int prevIndx = -1;
+    private GameObject[] groundTiles;
+    private Vector3 startPosition = new Vector3(0f, -1.5f, -10f);
+    private float elapsedTime = 0f;
 
     void Start()
     {
         groundTiles = new GameObject[numberOfTiles];
 
-        // Spawn the initial tiles in a row
         for (int i = 0; i < numberOfTiles; i++)
         {
             Vector3 spawnPosition = startPosition + new Vector3(0f, 0f, i * tileLength);
-            int idx = Random.Range(0, Levels.Length);  // Randomly pick a wall prefab
-            prevIndx = idx;
-            while(prevIndx == idx)
-            {
-                idx = Random.Range(0, Levels.Length);
-            }
-            GameObject floor = Levels[idx];
-            groundTiles[i] = Instantiate(floor, spawnPosition, Quaternion.identity);
+            int idx = GetUniqueRandomIndex();
+            groundTiles[i] = Instantiate(Levels[idx], spawnPosition, Quaternion.identity);
         }
     }
 
     void Update()
     {
-
-
-        //Trying to gradually increase the speed 
-        elaspedTime += Time.deltaTime;
-
-        int time = Mathf.RoundToInt(elaspedTime);
-
-        if (time == 10)
+        elapsedTime += Time.deltaTime;
+        if (elapsedTime >= 10f)
         {
             moveSpeed += 1;
-            elaspedTime = 0;
-
+            elapsedTime = 0f;
         }
 
-        // Move all the tiles backward over time
-        for (int i = 0; i < groundTiles.Length; i++)
+        foreach (GameObject tile in groundTiles)
         {
-            groundTiles[i].transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
+            tile.transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
         }
 
-        // Check if the first tile has moved past the reset threshold
         if (groundTiles[0].transform.position.z < startPosition.z - tileLength)
         {
-            SpawnNewWall();  // Spawn a new wall at the front
+            SpawnNewWall();
         }
     }
 
     void SpawnNewWall()
     {
-        // Destroy the tile at the back (first tile in the array)
         Destroy(groundTiles[0]);
-
-        // Move the remaining tiles in the array forward by one spot
         for (int i = 0; i < groundTiles.Length - 1; i++)
         {
             groundTiles[i] = groundTiles[i + 1];
         }
 
-        // Randomly choose a new wall prefab
-        int idx = Random.Range(0, Levels.Length);
-        while (prevIndx == idx)
+        int idx = GetUniqueRandomIndex();
+        Vector3 newPosition = groundTiles[^2].transform.position + new Vector3(0f, 0f, tileLength);
+        groundTiles[^1] = Instantiate(Levels[idx], newPosition, Quaternion.identity);
+    }
+
+    int GetUniqueRandomIndex()
+    {
+        int idx;
+        if (Levels.Length > 1)
         {
-            idx = Random.Range(0, Levels.Length);
+            do
+            {
+                idx = Random.Range(0, Levels.Length);
+            } while (idx == prevIndx);
         }
-
+        else
+        {
+            idx = 0;
+        }
         prevIndx = idx;
-        GameObject newWall = Levels[idx];
-
-        // Instantiate the new wall at the front
-        Vector3 newPosition = groundTiles[groundTiles.Length - 1].transform.position + new Vector3(0f, 0f, tileLength);
-        groundTiles[groundTiles.Length - 1] = Instantiate(newWall, newPosition, Quaternion.identity);
+        return idx;
     }
 }
