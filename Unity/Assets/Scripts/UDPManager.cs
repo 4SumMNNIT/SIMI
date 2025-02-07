@@ -6,7 +6,7 @@ public class UDPManager : MonoBehaviour
     private string data;
 
     public string GetData(){
-        return data;
+            return data;
     }
 
     public string[] GetDataPoints(){
@@ -29,9 +29,5 @@ public class UDPManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    void Update(){
-        // Debug.Log(data);
     }
 }
