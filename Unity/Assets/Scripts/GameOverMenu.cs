@@ -6,19 +6,13 @@ public class GameOverMenu : MonoBehaviour
     // Restart game by loading previous scene
     public void RestartGame()
     {
-        int previousSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
-        if (previousSceneIndex >= 0) 
-        {
-            SceneManager.LoadScene(previousSceneIndex);
-        }
-        else{
-            // Debug.Log("No previous scene to load.");
-        }
+        SceneManager.LoadScene("Level");
     }
 
     public void ExitGame()
     {
         Debug.Log("Exiting game...");
-        Application.Quit();
+        SceneManager.LoadScene("Menu");
+        // Application.Quit();
     }
 }
