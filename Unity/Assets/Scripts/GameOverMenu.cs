@@ -7,6 +7,7 @@ public class GameOverMenu : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("Level");
+        Time.timeScale = 1f;
     }
 
     public void ExitGame()

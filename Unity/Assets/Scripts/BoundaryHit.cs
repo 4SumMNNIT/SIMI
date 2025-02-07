@@ -1,21 +1,45 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+
 public class BoundaryHit : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float delayBeforeGameOver = 0.1f; // Delay before scene transition
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Boundary Hit");
+
+        // Stop all game movement
+        Time.timeScale = 0f;
+
+        // Stop the background music
+        GameObject bgMusicObject = GameObject.FindGameObjectWithTag("Bgsound");
+        if (bgMusicObject != null)
+        {
+            AudioSource bgMusic = bgMusicObject.GetComponent<AudioSource>();
+            bgMusic.Stop();
+        }
+
+        // Play the collision sound
+        GameObject hitSoundObject = GameObject.FindGameObjectWithTag("Hitsound");
+        if (hitSoundObject != null)
+        {
+            AudioSource hitSound = hitSoundObject.GetComponent<AudioSource>();
+            hitSound.Play();
+        }
+        else
+        {
+            Debug.LogWarning("No AudioSource with tag 'HitSound' found!");
+        }
+
+        // Wait and then load GameOver scene
+        StartCoroutine(LoadGameOverScene());
+    }
+
+    private IEnumerator LoadGameOverScene()
+    {
+        yield return new WaitForSecondsRealtime(delayBeforeGameOver);
         SceneManager.LoadScene("GameOver");
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
