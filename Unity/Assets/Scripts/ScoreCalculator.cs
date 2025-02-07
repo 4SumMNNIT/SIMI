@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class ScoreCalculator : MonoBehaviour
 {
 
-    public Text score;
+    // public Text score;
+    public TextMeshProUGUI score;
     int counter = 0;
 
     private float lastUpdateTime = 0f;
@@ -30,5 +32,9 @@ public class ScoreCalculator : MonoBehaviour
         counter = 0;
 
         score.text = counter.ToString("0");
+    }
+
+    public int getScore(){
+        return counter;
     }
 }
