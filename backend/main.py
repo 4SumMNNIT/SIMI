@@ -17,12 +17,6 @@ y_axis_py_max = height
 y_axis_unity_min = -0.7
 y_axis_unity_max = 10.7
 
-# Boundary Limits in Unity Space
-x_min_boundary = -5.2  # Left wall
-x_max_boundary = 5.2    # Right wall
-y_min_boundary = 0    # Bottom wall
-y_max_boundary = 12   # Top wall
-
 cap = cv2.VideoCapture(0)
 cap.set(3, width)
 cap.set(4, height)
@@ -54,10 +48,6 @@ while True:
         for lm in lmList:
             x = map_value(lm[0], x_axis_py_min, x_axis_py_max, x_axis_unity_min, x_axis_unity_max)
             y = map_value(height - lm[1], y_axis_py_min, y_axis_py_max, y_axis_unity_min, y_axis_unity_max)
-
-            # Apply boundary constraints
-            x = max(x_min_boundary, min(x, x_max_boundary))
-            y = max(y_min_boundary, min(y, y_max_boundary))
 
             data.extend([x, y, lm[2]])
 
