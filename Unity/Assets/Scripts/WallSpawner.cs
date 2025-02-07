@@ -3,12 +3,12 @@ using UnityEngine;
 public class WallSpawner : MonoBehaviour
 {
     public GameObject[] wallPrefabs;
-    private int noOfWalls = 5;
-    private float wallZgaps = 25f;
-    private float moveSpeed = 1f;
+    private int noOfWalls = 0;
+    private float wallZgaps = 30f;
+    private float moveSpeed = 5f;
 
     private GameObject[] walls;
-    private Vector3 startPosition = new Vector3(0f, 6f, -10f);
+    private Vector3 startPosition = new Vector3(0f, 6.5f, -10f);
     //For gradually increasing speed
     private float elaspedTime = 0f;
 
@@ -18,7 +18,7 @@ public class WallSpawner : MonoBehaviour
 
         for (int i = 0; i < noOfWalls; i++)
         {
-            Vector3 spawnPosition = new Vector3(0f, 6f, startPosition.z + i * wallZgaps);
+            Vector3 spawnPosition = new Vector3(0f, 6.5f, startPosition.z + i * wallZgaps);
             walls[i] = Instantiate(GetRandomWall(), spawnPosition, Quaternion.identity);
         }
     }
@@ -56,7 +56,7 @@ public class WallSpawner : MonoBehaviour
             walls[i] = walls[i + 1];
         }
 
-        Vector3 newPosition = new Vector3(0f, 6f, walls[walls.Length - 2].transform.position.z + wallZgaps);
+        Vector3 newPosition = new Vector3(0f, 6.5f, walls[walls.Length - 2].transform.position.z + wallZgaps);
         walls[walls.Length - 1] = Instantiate(GetRandomWall(), newPosition, Quaternion.identity);
     }
 

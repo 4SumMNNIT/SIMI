@@ -1,19 +1,23 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CursorHandler : MonoBehaviour
 {
-    public UDPReceive udpReceive;
     public GameObject cursor;
     public RectTransform rectTransform;
-
-    private float udpInputXMin = -10f;
-    private float udpInputXMax = 10f;
-    private float udpInputYMin = -0.7f;
-    private float udpInputYMax = 10.7f;
-    private float gameXMin = -960f;
-    private float gameXMax = 960f;
-    private float gameYMin = -540f;
-    private float gameYMax = 540f;
+    private Dictionary<string, float> coordinateMap = new Dictionary<string, float>
+    {
+        { "udpInputXMin", -10f },
+        { "udpInputXMax", 10f },
+        { "udpInputYMin", -0.7f },
+        { "udpInputYMax", 10.7f },
+        { "gameXMin", -960f },
+        { "gameXMax", 960f },
+        { "gameYMin", -540f },
+        { "gameYMax", 540f }
+    };
+    public static bool isClick = false;
+    public float errorMargin = 0.8f;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -21,35 +25,58 @@ public class CursorHandler : MonoBehaviour
     /// </summary>
     void Start()
     {
-        if (!MenuHandler.isMenu || !MenuHandler.isPaused){
-            // Debug.Log("CursorHandler Start");
-            // Debug.Log(MenuHandler.isMenu);
-            // Debug.Log(MenuHandler.isPaused);
-            cursor.SetActive(false);
-        }
+        // if (GameManager.state == "level"){
+        //     cursor.SetActive(false);
+        // }
     }
-
 
     void Update()
     {
-        if (MenuHandler.isMenu || MenuHandler.isPaused)
+        if (GameManager.state != GameManager.GameState.level)
         {
-            cursor.SetActive(true);
-            string data = udpReceive.data;
-            data = data.Remove(0, 1);
-            data = data.Remove(data.Length - 1, 1);
-            string[] points = data.Split(',');
-            float inputX = float.Parse(points[8 * 3]);
-            float inputY = float.Parse(points[8 * 3 + 1]);
-            // Debug.Log(""+inputX+" "+inputY);
-            float mappedX = MapRange(inputX, udpInputXMin, udpInputXMax, gameXMin, gameXMax);
-            float mappedY = MapRange(inputY, udpInputYMin, udpInputYMax, gameYMin, gameYMax);
-            // Debug.Log(""+mappedX+" "+mappedY);
-            rectTransform.localPosition = new Vector2(mappedX, mappedY);
-        }else{
-            cursor.SetActive(false);
+            // move the cursor
+            // cursor.SetActive(true);
+            MoveCursor(UDPManager.Instance.GetDataPoints());
+            // click handling
+            CheckForClick(UDPManager.Instance.GetDataPoints());
         }
+        else
+        {
+            // cursor.SetActive(false);
+        }
+    }
 
+    void MoveCursor(string[] points)
+    {
+        float inputX = float.Parse(points[8 * 3]);
+        float inputY = float.Parse(points[8 * 3 + 1]);
+        // Debug.Log(""+inputX+" "+inputY);
+        float mappedX = MapRange(inputX, coordinateMap["udpInputXMin"],
+        coordinateMap["udpInputXMax"], coordinateMap["gameXMin"], coordinateMap["gameXMax"]);
+        float mappedY = MapRange(inputY, coordinateMap["udpInputYMin"],
+        coordinateMap["udpInputYMax"], coordinateMap["gameYMin"], coordinateMap["gameYMax"]);
+        // Debug.Log(""+mappedX+" "+mappedY);
+        rectTransform.localPosition = new Vector2(mappedX, mappedY);
+    }
+
+    void CheckForClick(string[] points)
+    {
+        Vector2 middleTip = new Vector2(float.Parse(points[12 * 3]), float.Parse(points[12 * 3 + 1]));
+        Vector2 thumbTip = new Vector2(float.Parse(points[4 * 3]), float.Parse(points[4 * 3 + 1]));
+        // Debug.Log("thumb: " + thumbTip);
+        // Debug.Log("middle: " + middleTip);
+        float distance = Vector2.Distance(middleTip, thumbTip);
+        // Debug.Log(distance);
+        if (distance < errorMargin && !isClick)
+        {
+            // Debug.Log("Click detected!");
+            isClick = true;
+
+        }
+        else if (distance > errorMargin)
+        {
+            isClick = false;
+        }
     }
 
     float MapRange(float value, float fromMin, float fromMax, float toMin, float toMax)

@@ -1,16 +1,40 @@
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class ScoreCalculator : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    // public Text score;
+    public TextMeshProUGUI score;
+    int counter = 0;
+
+    private float lastUpdateTime = 0f;
+
+
     void Update()
     {
         
+
+        if (Time.time - lastUpdateTime >= 1f) // Check if 1 second has passed
+        {
+            lastUpdateTime = Time.time; // Update last recorded time
+            counter++; // Increase score
+            score.text =  counter.ToString(); // Update UI text
+        }
+
+        //Debug.Log(Time.deltaTime);
+    }
+
+
+    //For punishing cheater
+    public void resetScore()
+    {
+        counter = 0;
+
+        score.text = counter.ToString("0");
+    }
+
+    public int getScore(){
+        return counter;
     }
 }

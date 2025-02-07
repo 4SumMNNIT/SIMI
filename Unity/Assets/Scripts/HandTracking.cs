@@ -2,18 +2,13 @@ using UnityEngine;
 
 public class HandTracking : MonoBehaviour
 {
-    public UDPReceive udpReceive;
     public GameObject[] handPoints;
 
     void Update()
     {
-        if (!MenuHandler.isMenu && !MenuHandler.isPaused)
+        if (GameManager.state == GameManager.GameState.level)
         {
-
-            string data = udpReceive.data;
-            data = data.Remove(0, 1);
-            data = data.Remove(data.Length - 1, 1);
-            string[] points = data.Split(',');
+            string[] points = UDPManager.Instance.GetDataPoints();
 
             for (int i = 0; i < 21; i++)
             {
