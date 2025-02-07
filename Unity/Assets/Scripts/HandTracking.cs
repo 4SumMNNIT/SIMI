@@ -9,11 +9,7 @@ public class HandTracking : MonoBehaviour
     {
         if (!GameStateManager.isMenu && !GameStateManager.isPaused)
         {
-
-            string data = udpReceive.data;
-            data = data.Remove(0, 1);
-            data = data.Remove(data.Length - 1, 1);
-            string[] points = data.Split(',');
+            string[] points = UDPManager.GetDataPoints();
 
             for (int i = 0; i < 21; i++)
             {

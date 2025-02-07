@@ -3,7 +3,6 @@ using System.Collections;
 
 public class GameStateManager : MonoBehaviour
 {
-    public UDPReceive uDPReceive;
     public GameObject PausePanel;
     public GameObject MainMenuPanel;
     private string previousValue;
@@ -27,9 +26,9 @@ public class GameStateManager : MonoBehaviour
     void Update()
     {
         // if game is in level then check for udp data stability for pausing
-        if (isLevel && uDPReceive.data != previousValue)
+        if (isLevel && UDPManager.GetData() != previousValue)
         {
-            previousValue = uDPReceive.data;
+            previousValue = UDPManager.GetData();
             if (checkRoutine != null)
                 StopCoroutine(checkRoutine);
             

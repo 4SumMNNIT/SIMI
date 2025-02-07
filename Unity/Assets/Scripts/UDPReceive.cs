@@ -13,7 +13,6 @@ public class UDPReceive : MonoBehaviour
     public int port = 5020;
     public bool startRecieving = true;
     public bool printToConsole = false;
-    public string data;
 
 
     public void Start()
@@ -38,8 +37,9 @@ public class UDPReceive : MonoBehaviour
             {
                 IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
                 byte[] dataByte = client.Receive(ref anyIP);
-                data = Encoding.UTF8.GetString(dataByte);
-
+                string data = Encoding.UTF8.GetString(dataByte);
+                UDPManager.SetData(data);
+                
                 if (printToConsole) { print(data); }
             }
             catch (Exception err)
