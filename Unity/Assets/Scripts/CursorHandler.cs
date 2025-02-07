@@ -31,20 +31,16 @@ public class CursorHandler : MonoBehaviour
 
     void Update()
     {
-        if (GameStateManager.isMenu || GameStateManager.isPaused)
-        {
-            // move the cursor
-            cursor.SetActive(true);
-            string data = udpReceive.data;
-            data = data.Remove(0, 1);
-            data = data.Remove(data.Length - 1, 1);
-            string[] points = data.Split(',');
-            MoveCursor(points);
-            // click handling
-            CheckForClick(points);
-        }else{
-            cursor.SetActive(false);
-        }
+        // if (GameStateManager.isMenu || GameStateManager.isPaused)
+        // {
+        //     // move the cursor
+        //     cursor.SetActive(true);
+        //     MoveCursor(UDPManager.GetDataPoints());
+        //     // click handling
+        //     CheckForClick(UDPManager.GetDataPoints());
+        // }else{
+        //     cursor.SetActive(false);
+        // }
 
     }
 
