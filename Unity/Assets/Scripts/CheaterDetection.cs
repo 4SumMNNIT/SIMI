@@ -1,61 +1,43 @@
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CheaterDetection : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     ScoreCalculator scoreCalculator;
     void Start()
     {
         scoreCalculator = FindAnyObjectByType<ScoreCalculator>();
     }
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-
-    //}
 
 
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(transform.parent.name);
-        //string wall = "hand(Clone)";
-        
+   
         if (transform.parent.name.ToString() == "hand(Clone)")
         {
-           
-            if(other.gameObject.name== "Point (4)") { 
+
+            string[] arr = { "Point (4)" , "Point (8)", "Point (12)", "Point (16)", "Point (20)" };
+
+            bool found = Array.Exists(arr, name => name == other.gameObject.name);
+
+            if (found) { 
             
                 scoreCalculator.resetScore();
             }
-            if (other.gameObject.name == "Point (8)")
-            {
-                scoreCalculator.resetScore();
-            }
-            if (other.gameObject.name == "Point (12)")
-            {
-                scoreCalculator.resetScore();
-            }
-            if (other.gameObject.name == "Point (16)")
-            {
-                scoreCalculator.resetScore();
-            }
-            if (other.gameObject.name == "Point (20)")
-            {
-                scoreCalculator.resetScore();
-            }
+
         }
         else if (transform.parent.name.ToString() == "one_index_finger(Clone)")
         {
 
-            if (other.gameObject.name == "Point (8)")
-            {
 
-                scoreCalculator.resetScore();
-            }
-            if (other.gameObject.name == "Point (7)")
+            string[] arr = { "Point (7)", "Point (8)" };
+
+            bool found = Array.Exists(arr, name => name == other.gameObject.name);
+
+            if (found)
             {
 
                 scoreCalculator.resetScore();
@@ -63,12 +45,12 @@ public class CheaterDetection : MonoBehaviour
         }
         else if (transform.parent.name.ToString() == "two_fingers(Clone)")
         {
-            if (other.gameObject.name == "Point (8)")
-            {
+           
+            string[] arr = { "Point (8)", "Point (12)" };
 
-                scoreCalculator.resetScore();
-            }
-            if (other.gameObject.name == "Point (12)")
+            bool found = Array.Exists(arr, name => name == other.gameObject.name);
+
+            if (found)
             {
 
                 scoreCalculator.resetScore();
@@ -76,17 +58,12 @@ public class CheaterDetection : MonoBehaviour
         }
         else if (transform.parent.name.ToString() == "three_fingers(Clone)")
         {
-            if (other.gameObject.name == "Point (8)")
-            {
 
-                scoreCalculator.resetScore();
-            }
-            if (other.gameObject.name == "Point (12)")
-            {
+            string[] arr = { "Point (8)", "Point (12)", "Point (16)" };
 
-                scoreCalculator.resetScore();
-            }
-            if (other.gameObject.name == "Point (16)")
+            bool found = Array.Exists(arr, name => name == other.gameObject.name);
+
+            if (found)
             {
 
                 scoreCalculator.resetScore();
@@ -94,22 +71,12 @@ public class CheaterDetection : MonoBehaviour
         }
         else if (transform.parent.name.ToString() == "four_fingers(Clone)")
         {
-            if (other.gameObject.name == "Point (8)")
-            {
+    
+            string[] arr = { "Point (8)", "Point (12)", "Point (16)", "Point (20)" };
 
-                scoreCalculator.resetScore();
-            }
-            if (other.gameObject.name == "Point (12)")
-            {
+            bool found = Array.Exists(arr, name => name == other.gameObject.name);
 
-                scoreCalculator.resetScore();
-            }
-            if (other.gameObject.name == "Point (16)")
-            {
-
-                scoreCalculator.resetScore();
-            }
-            if (other.gameObject.name == "Point (20)")
+            if (found)
             {
 
                 scoreCalculator.resetScore();
