@@ -31,16 +31,16 @@ public class CursorHandler : MonoBehaviour
 
     void Update()
     {
-        if (GameStateManager.isMenu || GameStateManager.isPaused)
-        {
-            // move the cursor
-            cursor.SetActive(true);
-            MoveCursor(UDPManager.GetDataPoints());
-            // click handling
-            CheckForClick(UDPManager.GetDataPoints());
-        }else{
-            cursor.SetActive(false);
-        }
+        // if (GameStateManager.isMenu || GameStateManager.isPaused)
+        // {
+        //     // move the cursor
+        //     cursor.SetActive(true);
+        //     MoveCursor(UDPManager.GetDataPoints());
+        //     // click handling
+        //     CheckForClick(UDPManager.GetDataPoints());
+        // }else{
+        //     cursor.SetActive(false);
+        // }
 
     }
 

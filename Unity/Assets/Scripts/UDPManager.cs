@@ -3,20 +3,20 @@ using UnityEngine;
 public class UDPManager : MonoBehaviour
 {
     public static UDPManager Instance;
-    private static string data;
+    private string data;
 
-    public static string GetData(){
+    public string GetData(){
         return data;
     }
 
-    public static string[] GetDataPoints(){
+    public string[] GetDataPoints(){
         string temp = data.Remove(0, 1);
-        temp = temp.Remove(data.Length - 1, 1);
+        temp = temp.Remove(temp.Length - 1, 1);
         return temp.Split(',');
     }
 
-    internal static void SetData(string data){
-        UDPManager.data = data;
+    internal void SetData(string data){
+        Instance.data = data;
     }
     void Awake()
     {
@@ -29,5 +29,9 @@ public class UDPManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void Update(){
+        // Debug.Log(data);
     }
 }

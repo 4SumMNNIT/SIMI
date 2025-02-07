@@ -26,9 +26,9 @@ public class GameStateManager : MonoBehaviour
     void Update()
     {
         // if game is in level then check for udp data stability for pausing
-        if (isLevel && UDPManager.GetData() != previousValue)
+        if (isLevel && UDPManager.Instance.GetData() != previousValue)
         {
-            previousValue = UDPManager.GetData();
+            previousValue = UDPManager.Instance.GetData();
             if (checkRoutine != null)
                 StopCoroutine(checkRoutine);
             

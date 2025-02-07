@@ -8,7 +8,7 @@ public class HandTracking : MonoBehaviour
     {
         if (!GameStateManager.isMenu && !GameStateManager.isPaused)
         {
-            string[] points = UDPManager.GetDataPoints();
+            string[] points = UDPManager.Instance.GetDataPoints();
 
             for (int i = 0; i < 21; i++)
             {
