@@ -1303,7 +1303,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429210285}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
         m_MethodName: ExitLevel
         m_Mode: 1
@@ -2550,9 +2550,6 @@ GameObject:
   m_Component:
   - component: {fileID: 429210283}
   - component: {fileID: 429210284}
-  - component: {fileID: 429210285}
-  - component: {fileID: 429210286}
-  - component: {fileID: 429210287}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -2587,7 +2584,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e46148edce988e429121e7e0886f024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  udpReceive: {fileID: 0}
   handPoints:
   - {fileID: 637826852}
   - {fileID: 2022870832}
@@ -2610,56 +2606,6 @@ MonoBehaviour:
   - {fileID: 72374110}
   - {fileID: 500461902}
   - {fileID: 315135821}
---- !u!114 &429210285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429210281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af8da991dd325e341835098e19752efe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uDPReceive: {fileID: 0}
-  PausePanel: {fileID: 2018607044}
-  MainMenuPanel: {fileID: 0}
-  delay: 1.5
-  cursor: {fileID: 0}
---- !u!114 &429210286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429210281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cf24d9feb4a5384fbbce10554643a4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  udpReceive: {fileID: 0}
-  cursor: {fileID: 0}
-  rectTransform: {fileID: 0}
-  errorMargin: 1
---- !u!114 &429210287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429210281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 282b57f3a4fc3be4393c396751790908, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playButton: {fileID: 0}
-  menuExitButton: {fileID: 0}
-  resumeButton: {fileID: 868187709}
-  pauseExitButton: {fileID: 263352286}
-  cursor: {fileID: 0}
 --- !u!1 &465809084
 GameObject:
   m_ObjectHideFlags: 0
@@ -4040,7 +3986,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429210285}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
         m_MethodName: ResumeLevel
         m_Mode: 1
