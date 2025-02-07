@@ -4,7 +4,19 @@ using System.Collections;
 
 public class BoundaryHit : MonoBehaviour
 {
-    public float delayBeforeGameOver = 0.1f; // Delay before scene transition
+    public float delayBeforeGameOver = 0.5f; // Delay before scene transition
+    private ScoreCalculator scoreCalculator;
+
+    private void Start()
+    {
+        // Find ScoreCalculator dynamically (new Unity method)
+        scoreCalculator = Object.FindFirstObjectByType<ScoreCalculator>();
+
+        if (scoreCalculator == null)
+        {
+            Debug.LogError("ScoreCalculator script not found in the scene!");
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,7 +42,19 @@ public class BoundaryHit : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No AudioSource with tag 'HitSound' found!");
+            Debug.LogWarning("No AudioSource with tag 'Hitsound' found!");
+        }
+
+        // Get the score safely
+        if (scoreCalculator != null)
+        {
+            int score = scoreCalculator.getScore();
+            PlayerPrefs.SetInt("FinalScore", score); // Save score before switching scene
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            Debug.LogError("ScoreCalculator reference is null!");
         }
 
         // Wait and then load GameOver scene
