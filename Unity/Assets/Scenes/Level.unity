@@ -5173,14 +5173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevIndx: 0
   wallPrefabs:
-  - {fileID: 1104008420750860908, guid: d7c3daeb3127a8d4bb14599913c5c2d5, type: 3}
-  - {fileID: 2677923417462719469, guid: 43ff2ee0414ed5f42ad8b605405514f6, type: 3}
-  - {fileID: 1243960249782705905, guid: 5c9778512d1ad684b8bc32dbd2d94d74, type: 3}
-  - {fileID: 6674914210679734212, guid: f79e2be985601d04abe5058cc6668edf, type: 3}
-  - {fileID: 8726394531150740063, guid: 7347c1d61cc9a0d4e9757386edbfe914, type: 3}
-  - {fileID: 1715397622105536689, guid: a03d0f00630bfbb43bdd66b7436839f8, type: 3}
-  - {fileID: 8538842848386389855, guid: d76f5ef793368384389f8a9e98d85f03, type: 3}
-  - {fileID: 3766812196639241300, guid: dcb15daf0cb7a214280b868b9c712294, type: 3}
+  - {fileID: 1242648570928283932, guid: 23ed59001f9aec14f98b75c1d07105a0, type: 3}
   startPositionWall: {x: 0, y: 4, z: -15}
   Levels:
   - {fileID: 3263352685309596186, guid: cfa77127fe369ff43860afc7e4a94c83, type: 3}

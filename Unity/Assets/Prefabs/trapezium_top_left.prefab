@@ -1171,7 +1171,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: d0e9999110738594d810f25a8cf2589b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 0f190f57567618749956b8be8aa29adc, type: 2}
+      objectReference: {fileID: 2100000, guid: e6f9ec28febbb4d46b7f3074212c186e, type: 2}
     - target: {fileID: 919132149155446097, guid: d0e9999110738594d810f25a8cf2589b, type: 3}
       propertyPath: m_Name
       value: trapezium_top_left

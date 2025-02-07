@@ -1662,7 +1662,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: f79b029d92c87054ca977303ca181e0d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 462936d900f97b145a0c161f36f6a849, type: 2}
+      objectReference: {fileID: 2100000, guid: 503b4da9bcbcec141bbc6e756ccb1b99, type: 2}
     - target: {fileID: 919132149155446097, guid: f79b029d92c87054ca977303ca181e0d, type: 3}
       propertyPath: m_Name
       value: four_fingers
