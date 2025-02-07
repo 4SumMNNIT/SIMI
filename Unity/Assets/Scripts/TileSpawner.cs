@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TileSpawner : MonoBehaviour
 {
-    public GameObject groundTilePrefab;  // The ground tile prefab
+
     private int numberOfTiles = 5;       // Number of tiles to spawn initially
     private float tileLength = 50f;        // Length of each tile
     private float moveSpeed = 5f;         // Speed at which tiles will move
