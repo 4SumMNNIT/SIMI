@@ -18,8 +18,8 @@ y_axis_unity_min = -0.7
 y_axis_unity_max = 10.7
 
 # Boundary Limits in Unity Space
-x_min_boundary = -7   # Left wall
-x_max_boundary = 7    # Right wall
+x_min_boundary = -5.2  # Left wall
+x_max_boundary = 5.2    # Right wall
 y_min_boundary = 0    # Bottom wall
 y_max_boundary = 12   # Top wall
 

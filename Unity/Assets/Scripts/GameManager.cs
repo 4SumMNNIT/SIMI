@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     // start the game anew
     public void StartLevel()
     {
+        Time.timeScale = 1;
         CursorHandler.isClick = false;
         SceneManager.LoadScene(1);
     }

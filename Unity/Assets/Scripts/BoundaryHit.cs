@@ -4,7 +4,7 @@ using System.Collections;
 
 public class BoundaryHit : MonoBehaviour
 {
-    public float delayBeforeGameOver = 0.5f; // Delay before scene transition
+    public float delayBeforeGameOver = 0.7f; // Delay before scene transition
     private ScoreCalculator scoreCalculator;
 
     private void Start()
