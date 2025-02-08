@@ -1,40 +1,74 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class ScoreCalculator : MonoBehaviour
 {
+    public TextMeshProUGUI scoreText;
 
-    // public Text score;
-    public TextMeshProUGUI score;
-    int counter = 0;
+    public Image[] lifeIcons; // Array to store life
 
+    private int counter = 0;
+    private int maxScore = 0;
+    private int lives = 3; 
     private float lastUpdateTime = 0f;
+    private float lastLifeLostTime = 0f;
+private float lifeLossCooldown = 1.0f; // 1 second cooldown
 
+    void Start()
+    {
+        UpdateLivesUI();
+    }
 
     void Update()
     {
-        
-
-        if (Time.time - lastUpdateTime >= 1f) // Check if 1 second has passed
+        if (Time.time - lastUpdateTime >= 1f)
         {
-            lastUpdateTime = Time.time; // Update last recorded time
-            counter++; // Increase score
-            score.text =  counter.ToString(); // Update UI text
+            lastUpdateTime = Time.time;
+            counter++;
+            scoreText.text = counter.ToString();
         }
-
-        //Debug.Log(Time.deltaTime);
     }
 
 
-    //For punishing cheater
-    public void resetScore()
+    private void UpdateLivesUI()
     {
-        counter = 0;
-
-        score.text = counter.ToString("0");
+        for (int i = 0; i < lifeIcons.Length; i++)
+        {
+            lifeIcons[i].enabled = i < lives; 
+        }
     }
 
-    public int getScore(){
+    private void GameOver()
+    {
+        SceneManager.LoadScene("GameOver"); // Load Game Over scene
+        Time.timeScale = 0; // Pause the game
+    }
+
+    public int getScore()
+    {
         return counter;
     }
+
+    public int getMaxScore()
+    {
+        return maxScore;
+    }
+
+    public void resetScore()
+{
+    if (Time.time - lastLifeLostTime < lifeLossCooldown) return; // multiple deductions
+
+    lastLifeLostTime = Time.time;
+    
+    lives--; 
+    Debug.Log("Lives: " + lives);
+    UpdateLivesUI(); 
+
+    if (lives <= 0)
+    {
+        GameOver();
+    }
+    // scoreText.text = counter.ToString("0");
+}
 }
