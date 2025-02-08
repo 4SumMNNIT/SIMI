@@ -60,7 +60,12 @@ private float lifeLossCooldown = 1.0f; // 1 second cooldown
     if (Time.time - lastLifeLostTime < lifeLossCooldown) return; // multiple deductions
 
     lastLifeLostTime = Time.time;
+
     
+    //Camera Shake
+
+
+
     lives--; 
     Debug.Log("Lives: " + lives);
     UpdateLivesUI(); 
