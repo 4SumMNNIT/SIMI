@@ -1234,8 +1234,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1250025079}
   - component: {fileID: 1250025084}
-  - component: {fileID: 1250025083}
   - component: {fileID: 1250025082}
+  - component: {fileID: 1250025085}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1271,21 +1271,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
---- !u!114 &1250025083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1250025078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 282b57f3a4fc3be4393c396751790908, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button1: {fileID: 1698486552}
-  button2: {fileID: 1134178220}
-  cursor: {fileID: 527237207}
 --- !u!114 &1250025084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1301,6 +1286,22 @@ MonoBehaviour:
   cursor: {fileID: 527237208}
   rectTransform: {fileID: 527237207}
   errorMargin: 0.8
+--- !u!114 &1250025085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250025078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a49a3848b8aad742b5f3f20581ec792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button1: {fileID: 1698486552}
+  button2: {fileID: 1134178220}
+  button3: {fileID: 571309852}
+  cursor: {fileID: 527237207}
 --- !u!1 &1544078962
 GameObject:
   m_ObjectHideFlags: 0
