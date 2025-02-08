@@ -5396,10 +5396,14 @@ MonoBehaviour:
   - {fileID: 1715397622105536689, guid: a03d0f00630bfbb43bdd66b7436839f8, type: 3}
   - {fileID: 6475178258754451636, guid: ff1300bd938e81b459f3f2ac74df80a5, type: 3}
   - {fileID: 2747887076381122617, guid: 999671024148e714fba3d6f6a6c277e2, type: 3}
+  - {fileID: 5135198183076725668, guid: 4c69750a1c1a7ed4c9174da13ca2e5f6, type: 3}
+  - {fileID: 828644048076741017, guid: 79b678b3a91d1cf40a88368cf901c8dd, type: 3}
   startPositionWall: {x: 0, y: 4, z: -15}
   Levels:
   - {fileID: 3263352685309596186, guid: cfa77127fe369ff43860afc7e4a94c83, type: 3}
   - {fileID: 528373191047565091, guid: 5b6af6fae65c290438ad0256a9c95595, type: 3}
+  - {fileID: 2685004701657038182, guid: 6a9a03e8aeadc89429affd8dde8032ba, type: 3}
+  - {fileID: 3573959493252983196, guid: 189236686f78bda4c827c6763e4a1b00, type: 3}
   startPosition: {x: 0, y: -1.5, z: -10}
 --- !u!4 &1287797779
 Transform:
