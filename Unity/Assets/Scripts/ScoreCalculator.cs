@@ -1,28 +1,40 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class ScoreCalculator : MonoBehaviour
 {
 
-    public Text score;
-    
+    // public Text score;
+    public TextMeshProUGUI score;
+    int counter = 0;
+
+    private float lastUpdateTime = 0f;
+
+
     void Update()
     {
-        //number= number + (int)Time.deltaTime;
-        //score.text= number.ToString();
+        
 
-        // dont show score if score is zero
-        if (Time.time > 0 && !GameStateManager.isPaused) {
-            score.enabled = true;
+        if (Time.time - lastUpdateTime >= 1f) // Check if 1 second has passed
+        {
+            lastUpdateTime = Time.time; // Update last recorded time
+            counter++; // Increase score
+            score.text =  counter.ToString(); // Update UI text
         }
-        else {
-            score.enabled = false;
-        }
-
-        // show score
-        score.text = Time.time.ToString("0");
-
 
         //Debug.Log(Time.deltaTime);
+    }
+
+
+    //For punishing cheater
+    public void resetScore()
+    {
+        counter = 0;
+
+        score.text = counter.ToString("0");
+    }
+
+    public int getScore(){
+        return counter;
     }
 }

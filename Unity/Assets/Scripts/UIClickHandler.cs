@@ -3,10 +3,8 @@ using UnityEngine.UI;
 
 public class UIClickHandler : MonoBehaviour
 {
-    public Button playButton;
-    public Button menuExitButton;
-    public Button resumeButton;
-    public Button pauseExitButton;
+    public Button button1;
+    public Button button2;
     public RectTransform cursor;
     void Start()
     {
@@ -17,18 +15,11 @@ public class UIClickHandler : MonoBehaviour
     void Update()
     {
         // Debug.Log("isPaused: "+GameStateManager.isPaused + " isLevel: "+GameStateManager.isLevel);
-        if (GameStateManager.isMenu && CursorHandler.isClick){
-            if (IsHovering(cursor, playButton.GetComponent<RectTransform>())){
-                playButton.onClick.Invoke();
-            }else if (IsHovering(cursor, menuExitButton.GetComponent<RectTransform>())){
-                menuExitButton.onClick.Invoke();
-            }
-        }else if(GameStateManager.isPaused && CursorHandler.isClick){
-            if (IsHovering(cursor, resumeButton.GetComponent<RectTransform>())){
-                // Debug.Log("Resume Called");
-                resumeButton.onClick.Invoke();
-            }else if (IsHovering(cursor, pauseExitButton.GetComponent<RectTransform>())){
-                pauseExitButton.onClick.Invoke();
+        if (GameManager.state != GameManager.GameState.level && CursorHandler.isClick){
+            if (IsHovering(cursor, button1.GetComponent<RectTransform>())){
+                button1.onClick.Invoke();
+            }else if (IsHovering(cursor, button2.GetComponent<RectTransform>())){
+                button2.onClick.Invoke();
             }
         }
     }
