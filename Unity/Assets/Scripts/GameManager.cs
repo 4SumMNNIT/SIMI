@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     private Coroutine checkRoutine;
     public float delay = 1.0f; // Reduced to 1 sec for hand detection pause
     public enum GameState{
-        menu, level, paused, over, error
+        menu, level, paused, over, free
     }
     public static GameState state;
 
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
                 state = GameState.over;
                 break;
             default:
-                state = GameState.error;
+                state = GameState.free;
                 break;
         }
     }
@@ -88,6 +88,12 @@ public class GameManager : MonoBehaviour
 
     public void ExitGame(){
         Application.Quit();
+    }
+
+    public void FreePlayGame(){
+        CursorHandler.isClick = false;
+        state = GameState.free;
+        SceneManager.LoadScene(3);
     }
 
     IEnumerator WaitForStability()
