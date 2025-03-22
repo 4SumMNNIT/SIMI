@@ -90,12 +90,6 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void FreePlayGame(){
-        CursorHandler.isClick = false;
-        state = GameState.free;
-        SceneManager.LoadScene(3);
-    }
-
     IEnumerator WaitForStability()
     {
         yield return new WaitForSeconds(delay);
