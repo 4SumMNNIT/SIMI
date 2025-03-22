@@ -20,6 +20,10 @@ public class UDPManager : MonoBehaviour
     }
     void Awake()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        Application.runInBackground = true;
+
+        Debug.Log("UDPManager started");
         if (Instance == null)
         {
             Instance = this;

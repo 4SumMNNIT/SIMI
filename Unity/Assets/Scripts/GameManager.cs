@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public static GameState state;
 
     void Start()
-    {
+    {   Screen.sleepTimeout = SleepTimeout.NeverSleep;
         setState();
         if (state == GameState.level){
             pauseMenu = GameObject.Find("PauseCanvas");

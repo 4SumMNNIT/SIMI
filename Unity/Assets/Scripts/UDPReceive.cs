@@ -16,6 +16,7 @@ public class UDPReceive : MonoBehaviour
     public bool printToConsole = false;
     public void Start()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         receiveThread = new Thread(
             new ThreadStart(ReceiveData));
         receiveThread.IsBackground = true;
