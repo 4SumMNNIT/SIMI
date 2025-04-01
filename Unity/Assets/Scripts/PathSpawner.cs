@@ -5,35 +5,37 @@ public class PathSpawner : MonoBehaviour
 {
     //Common variables
     private float wallZgaps = 35f;
-    private float moveSpeed = 5f; 
+    private float moveSpeed = 5f;
     private float elaspedTime = 0f;
     public int prevIndx = 0;
 
+    private ScoreCalculator scoreCalculator;
 
     //Array to store different types of walls
     public GameObject[] wallPrefabs;
     private int noOfWalls = 7;
-    
 
+    private int score = 0;
 
     //Array to store current walls
     private GameObject[] walls;
     public Vector3 startPositionWall = new Vector3(0f, 4f, -10f);
-    
 
-  
-    
+
+
+
     //Array for different ground
     public GameObject[] Levels;
     private int numberOfTiles = 5;
     private float tileLength = 50f;
-    
+
     //Array to store current ground
     private GameObject[] groundTiles;    // Array to store the Ground tiles
-    public Vector3 startPosition = new Vector3(0f, -1.5f, -10f); 
+    public Vector3 startPosition = new Vector3(0f, -1.5f, -10f);
     void Start()
     {
 
+        scoreCalculator = FindObjectOfType<ScoreCalculator>();
 
 
         //For walls===============
@@ -73,6 +75,12 @@ public class PathSpawner : MonoBehaviour
 
     void Update()
     {
+
+        score = scoreCalculator.getScore();
+
+        Debug.Log("Score: " + score);
+
+
         elaspedTime += Time.deltaTime;
 
         int time = Mathf.RoundToInt(elaspedTime);
@@ -99,7 +107,6 @@ public class PathSpawner : MonoBehaviour
 
 
 
-
         //For Ground=========================
         for (int i = 0; i < groundTiles.Length; i++)
         {
@@ -109,7 +116,7 @@ public class PathSpawner : MonoBehaviour
         // Check if the first tile has moved past the reset threshold
         if (groundTiles[0].transform.position.z < startPosition.z - tileLength)
         {
-            SpawnNewGround();  
+            SpawnNewGround();
         }
         //For Ground=========================
 
@@ -166,6 +173,16 @@ public class PathSpawner : MonoBehaviour
 
     GameObject GetRandomWall()
     {
-        return wallPrefabs[Random.Range(0, wallPrefabs.Length)];
+        // return wallPrefabs[Random.Range(0, wallPrefabs.Length)];
+        if (score > 15)
+        {
+            return wallPrefabs[Random.Range(0, wallPrefabs.Length)];
+            // return wallPrefabs[0];
+        }
+        else
+        {
+            return wallPrefabs[Random.Range(0, wallPrefabs.Length - 2)];
+            // return wallPrefabs[1];
+        }
     }
 }
