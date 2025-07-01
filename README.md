@@ -6,6 +6,19 @@
 ## Download:
 <a href="https://github.com/4SumMNNIT/SIMI/releases"> <img src="https://i.ibb.co/zT7dVswt/CITYPNG-COM-Download-Red-Web-Button-HD-PNG-3000x3000.png" width=200px> </a>
 
+---
+
+## 🎬 Demo Video Trailer
+<a href="https://drive.google.com/file/d/1PPhX8XheqYP_d_cQTRSzR-8nKVoZujMC/view?usp=sharing" target="_blank">
+  ▶️ Watch Gameplay Trailer
+</a>
+
+## 📽️ Project Presentation (PPT)
+<a href="https://docs.google.com/presentation/d/14BFkT6s6I5OsTe-tQeFYjo03rIKdBLDm/edit?usp=sharing&ouid=114466916605666522061&rtpof=true&sd=true" target="_blank">
+  📂 View Project Presentation
+</a>
+
+---
 ## Introduction:
 **Sign It or Miss It** is an interactive Unity game that use computer vision and hand tracking to provide an immersive experience. The game uses **OpenCV** and **MediaPipe** to track hand movements and generate a corresponding 3D hand in Unity. Players must pass their virtual hand through walls with cutout shapes to progress through the game.
 
